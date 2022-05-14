@@ -12,7 +12,7 @@ const idArray = []
 
 function askUser() {
   function createManager() {
-    console.log("Please add your team")
+    console.log("Please add the team manager's info")
     inquirer.prompt([
       {
         type: 'input',
@@ -67,7 +67,7 @@ function askUser() {
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">ID: ${answers.managerId}</li>
-            <li class="list-group-item">Email: <br> ${answers.managerEmail}</li>
+            <li class="list-group-item">Email: <br> <a href="mailto:${answers.managerEmail}">${answers.managerEmail}</a></li>
             <li class="list-group-item">Office Number: ${answers.officeNumber}</li>
           </ul>
         </div>
@@ -91,7 +91,7 @@ function askUser() {
 
       }
     ]).then(userChoice => {
-      console.log(userChoice.employeeType)
+      // console.log(userChoice.employeeType)
       if (userChoice.employeeType === 'Intern') {
         addIntern();
       }
@@ -139,7 +139,7 @@ function askUser() {
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">ID: ${internData.internId}</li>
-        <li class="list-group-item">Email: <br> ${internData.internEmail}</li>
+        <li class="list-group-item">Email: <br> <a href="mailto:${internData.internEmail}">${internData.internEmail}</a></li>
         <li class="list-group-item">School: ${internData.internSchool}</li>
       </ul>
     </div>
@@ -155,7 +155,6 @@ function askUser() {
 
   function addEngineer() {
 
-    console.log("Please add your team")
     inquirer.prompt([
       {
         type: 'input',
@@ -187,8 +186,8 @@ function askUser() {
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">ID: ${engineerData.engineerId}</li>
-          <li class="list-group-item">Email: <br> ${engineerData.engineerEmail}</li>
-          <li class="list-group-item">GitHub: ${engineerData.engineerGithub}</li>
+          <li class="list-group-item">Email: <br> <a href="mailto:${engineerData.engineerEmail}">${engineerData.engineerEmail}</a> </li>
+          <li class="list-group-item">GitHub: <a href="github.com/${engineerData.engineerGithub}">${engineerData.engineerGithub} </a></li>
         </ul>
       </div>
 
@@ -208,7 +207,7 @@ function askUser() {
     </html>`;
 
     fs.appendFileSync('../dist/team.html', endHTML)
-    console.log("Team Created!")
+    console.log("Team successfully created!")
   }
   createManager();
 }
