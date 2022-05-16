@@ -1,5 +1,5 @@
 class Intern {
-    constructor (name, id, email, school) {
+    constructor(name, id, email, school) {
         this.school = school
         this.name = name
         this.id = id
@@ -27,6 +27,4 @@ class Intern {
     }
 };
 
-module.exports = {
-Intern
-}
+module.exports = Intern;
